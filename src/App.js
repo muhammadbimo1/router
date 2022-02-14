@@ -30,6 +30,7 @@ function App() {
         <Route path='/products/' element={<Outlet />}>
           <Route index element={<Product/>}/>
           <Route path='form' element={<ProductForm />} />
+          <Route path='form/:id' element={<ProductForm />} />
         </Route>
         <Route path='/customers/*' element={<Customer />} />
         <Route path="*" element={<Home/>}/>
