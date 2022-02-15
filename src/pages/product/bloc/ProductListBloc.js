@@ -1,9 +1,9 @@
 import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom/umd/react-router-dom.development";
-import { getProducts } from "../service/ProductService";
 
-const ProductListBloc = () => {
+const ProductListBloc = (productService) => {
+    let {getProducts,getProductById,postProduct} = productService();
     const [list, setList] = useState(
         {
             products: [],

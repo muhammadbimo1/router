@@ -3,17 +3,25 @@ import client from "../../../shared/http-client/Client";
 
 const products = "/products/";
 
-export const getProducts = async () => {
-    const response = await client.get(products)
-    return response;
+const ProductService = () => {
+    const getProducts = async () => {
+        const response = await client.get(products)
+        return response;
+    }
+    
+     const getProductById = async (id) => {
+        const response = await client.get(`${products}${id}`)
+        return response;
+    }
+    
+     const postProduct = async (data) => {
+        const response = await client.post(products,data)
+        return response;
+    }
+    return getProducts,
+    getProductById,
+    postProduct
 }
 
-export const getProductById = async (id) => {
-    const response = await client.get(`${products}${id}`)
-    return response;
-}
+export default ProductService;
 
-export const postProduct = async (data) => {
-    const response = await client.post(products,data)
-    return response;
-}

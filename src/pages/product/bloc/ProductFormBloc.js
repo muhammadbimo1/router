@@ -1,9 +1,8 @@
-import axios from "axios";
 import { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom/umd/react-router-dom.development";
-import { getProductById, getProducts, postProduct } from "../service/ProductService";
 
-const ProductFormBloc = () => {
+const ProductFormBloc = (productService) => {
+    let {getProducts,getProductById,postProduct} = productService();
     const [loading, setLoading] = useState(false)
     let params = useParams();
     let navigate = useNavigate();
