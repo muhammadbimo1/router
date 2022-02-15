@@ -6,7 +6,7 @@ import * as Yup from "yup";
 import { useNavigate } from "react-router-dom/umd/react-router-dom.development";
 import { getProductById, postProduct } from "./service/ProductService";
 const ProductForm = ({bloc}) => {
-    const {loading,handleUpdate,submitData} = bloc();
+    const {loading,handleUpdate,submitData,getProduct} = bloc();
     let params = useParams();
 
     useEffect(() => {
@@ -34,7 +34,7 @@ const ProductForm = ({bloc}) => {
 
     const getProductInfoById = async () => {
         try {
-            const response = await getProductById(params.id)
+            const response = await getProduct(params.id)
             console.log("RESPONSE",response);
             formik.values.id = response.data.data.id;
             formik.values.name = response.data.data.name;

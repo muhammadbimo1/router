@@ -1,4 +1,3 @@
-import axios from "axios"
 import client from "../../../shared/http-client/Client";
 
 const products = "/products/";
@@ -18,9 +17,7 @@ const ProductService = () => {
         const response = await client.post(products,data)
         return response;
     }
-    return getProducts,
-    getProductById,
-    postProduct
+    return {getProducts,getProductById,postProduct}
 }
 
 export default ProductService;

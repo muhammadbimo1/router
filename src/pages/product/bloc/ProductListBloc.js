@@ -11,6 +11,7 @@ const ProductListBloc = (productService) => {
         }
     )
     let navigate = useNavigate();
+    
     const getProductList = async () => {
         try {
             const response = await getProducts();

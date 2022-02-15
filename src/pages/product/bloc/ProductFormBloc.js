@@ -4,7 +4,6 @@ import { useNavigate, useParams } from "react-router-dom/umd/react-router-dom.de
 const ProductFormBloc = (productService) => {
     let {getProducts,getProductById,postProduct} = productService();
     const [loading, setLoading] = useState(false)
-    let params = useParams();
     let navigate = useNavigate();
 
     const handleUpdate = async (values) => {
@@ -35,12 +34,24 @@ const ProductFormBloc = (productService) => {
 
     }
 
+    const getProduct = async (id) => {
+        try {
+            const response = await getProductById(id);
+            return response;
+        } catch (error) {
+            ///do error
+            console.log(error);
+        }
+
+    }
+
 
 
     return {
         loading,
         handleUpdate,
         submitData,
+        getProduct
     }
 
 
